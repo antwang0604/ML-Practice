@@ -25,13 +25,19 @@ current_x = init_x
 for n in range(max_iterations):
     current_point = (current_x, y_func(current_x))
     step_size = y_derivative(current_x) * learning_rate
-    if abs(step_size) > step_size_clipping:
-        if step_size > 0:
-            step_size = step_size_clipping
-        else:
-            step_size = -step_size_clipping
 
-    print(f"iteration: {n} current x: {current_x} slope: {y_derivative(current_x)} step_size: {step_size}")
+    def sign(x):
+        if x < 0:
+            return -1
+        elif x > 0:
+            return 1
+        else:
+            return 0
+
+    if abs(step_size) > step_size_clipping:
+        step_size = sign(step_size) * step_size_clipping
+
+    print(f"iteration: {n} | current x,y: ({round(current_point[0])},{round(current_point[1])}) | slope: {round(y_derivative(current_x))} step_size: {round(step_size)}")
     if abs(step_size)<=min_step_size:
         break
     current_x -= step_size
