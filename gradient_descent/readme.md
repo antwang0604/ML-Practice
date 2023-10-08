@@ -33,14 +33,14 @@ hyperparameter that determines the size of the steps taken in each iteration. It
 
 The result of this example looks like this. 
 
-![]()
+![](https://github.com/antwang0604/ML-Practice/blob/main/gradient_descent/content/QuadraticGD.gif)
 
 We can see that when the alogrithm is far away from the solution, in this case it is when x=0, it moves fast towards the solution. This is because the slope is higher when far away. And as the algorithm closes up towards the solution, the slope decreases and the step sizes become smaller. When the slope gets really small, and step size becomes less than **min_step_size**, the algorithm is considered completed.
 
 ## Example 2 - $y=x^4$
 There are times when the gradient "explodes" or causes oscillation. Explosion occurs when dealing with a cost function like y=x^4, which has a steep curvature for values of x away from the minimum, it's common for gradient descent to have convergence issues due to large step sizes. This can lead to overshooting the minimum or slow convergence. Below is an example and starting from the first iteration, the slope is alreasy large causing a larget step size, which causes the subsequent iterations to continue to increase.
 
-![](https://github.com/antwang0604/ML-Practice/blob/main/gradient_descent/content/QuadraticGD.gif)
+![](https://github.com/antwang0604/ML-Practice/blob/main/gradient_descent/content/exploding_gradient.png)
 
 To address this, we introduce a new parameter called gradient clipping.
 
