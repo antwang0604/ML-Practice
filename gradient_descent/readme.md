@@ -40,7 +40,7 @@ We can see that when the alogrithm is far away from the solution, in this case i
 ## Example 2 - $y=x^4$
 There are times when the gradient "explodes" or causes oscillation. Explosion occurs when dealing with a cost function like y=x^4, which has a steep curvature for values of x away from the minimum, it's common for gradient descent to have convergence issues due to large step sizes. This can lead to overshooting the minimum or slow convergence. Below is an example and starting from the first iteration, the slope is alreasy large causing a larget step size, which causes the subsequent iterations to continue to increase.
 
-![]()
+![](https://github.com/antwang0604/ML-Practice/blob/main/gradient_descent/content/QuadraticGD.gif)
 
 To address this, we introduce a new parameter called gradient clipping.
 
@@ -50,8 +50,11 @@ it's scaled down to a predefined threshold. This can prevent excessively large s
 
 With graident clipping implemented in the code with_clipping.py, we get:
 
-![]()
+![](https://github.com/antwang0604/ML-Practice/blob/main/gradient_descent/content/ProperClipping.gif)
 
 Oscillation can also occur if the parameters are not properly set:
 
-![]()
+![](https://github.com/antwang0604/ML-Practice/blob/main/gradient_descent/content/Oscillation.gif)
+
+
+![](https://github.com/antwang0604/ML-Practice/blob/main/gradient_descent/content/multivar.gif)
