@@ -8,7 +8,7 @@
 ## Concept of Gradient Descent
 Gradient Descent works by iteratively adjusting model parameters in the direction that reduces the cost the most, guided by the gradient (slope) of the cost function. This process continues until the algorithm converges to a point where the cost is minimized, effectively finding the best model parameters for a given task. 
 
-In other words, the algorithm will converge when it finds the point where slope equals zero. The effect of gradient descent is when far away from the converging point, the algorithm will take large strides toward the solution, and as the algorithm apporaches solution, it will take baby steps until convergence.
+In other words, the algorithm will converge when it finds the point where slope equals zero. The characteristic of gradient descent is when far away from the converging point, the algorithm will take large strides toward the solution, and as the algorithm apporaches solution, it will take baby steps until convergence.
 
 Generalized Gradient Descent formula is
 $$
