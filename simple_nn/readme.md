@@ -2,11 +2,11 @@
 
 We have a set of data points that represents dosage of medicine vs efficacy of medicine:
 
-![Data Points](http://url/to/img.png)
+![Data Points](https://github.com/antwang0604/ML-Practice/blob/main/simple_nn/content/DataPoints.png)
 
 We want to fit a curve using a simple neural network so we can predict what the efficacy of the medicine is given the dosage. The neural network we can use to model this example has 7 parameters
 
-![Simple Nerual Network](http://url/to/img.png)
+![Simple Nerual Network](https://github.com/antwang0604/ML-Practice/blob/main/simple_nn/content/SimpleNN.png)
 
 ## Training Last parameters
 
@@ -58,7 +58,7 @@ We initialize the three parameters (w3, w4, b3) with a random value, while the r
 
 The training will continue until the max_iteration has elapsed, or the min_step_size has been reached which results in the final optimal values for w3, w4, and b3. The training process is visualized here:
 
-![Gradient Descent of 3 variables](http://url/to/img.png)
+![Gradient Descent of 3 variables](https://github.com/antwang0604/ML-Practice/blob/main/simple_nn/content/NN_GD.gif)
 
 Top left shows the fitted curve - how well the neural network is able to fit the data points. Overtime, the fitted curve will become 
 Top right shows the Cost Function J with different values of w3. Note, w4 and b3 are already plugged in with optimal values.
