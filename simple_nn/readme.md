@@ -8,6 +8,8 @@ We want to fit a curve using a simple neural network so we can predict what the 
 
 ![Simple Nerual Network](http://url/to/img.png)
 
+## Training Last parameters
+
 The parameters of the neural network (weights and biases) will determine what the fitted curve looks like and they need to be individually optimized. But assuming that the first four parameters w1, w2, b1, b2 have already been optimized, we want to use back propogation to optimze the remaining three parameteres w3, w4, b3 to demonstrate the concept of back propogation.
 
 In the nerual network, the predicted output can be calculated as (with respect to the unoptimized parameters):
@@ -63,3 +65,40 @@ Top right shows the Cost Function J with different values of w3. Note, w4 and b3
 Bottom left shows the Cost Function J with different values of w4. Note, w3 and b3 are already plugged in with optimal values.
 Bottom right show the Cost Function J with different values of b3. Note, w3 and w4 are already plugged in with optimal values.
 
+## Training All Parameteres
+To train the full neural network, instead of plugging the first 4 parameters with optimal value, we apply gradient descent to all the 7 parameters to find their optimal values.
+
+Gradient Descent for each parameter:
+w1_next = w1 - (learning_rate * dJ/dw1)
+w2_next = w2 - (learning_rate * dJ/dw2)
+b1_next = b1 - (learning_rate * dJ/db1)
+b2_next = b2 - (learning_rate * dJ/db2)
+w3_next = w3 - (learning_rate * dJ/dw3)
+w4_next = w4 - (learning_rate * dJ/dw4)
+b3_next = b3 - (learning_rate * dJ/db3)
+
+Derivative of J with respect to w3, w4, and b3 remains the same as before. Calculating the Derivative of J with respect to w1, w2, b1, and b2 is more complex but manageable with the help of chain rule.
+
+Predicted   = ( hidden_layer_output_1 * w3 ) + ( hidden_layer_output_2 * w4 ) + b3
+hidden_layer_output_1 = CalculateSoftMax(x1) = log(1+e^x1)
+hidden_layer_output_2 = CalculateSoftMax(x2) = log(1+e^x2)
+x1 = dosage * w1 + b1
+x2 = dosage * w2 + b2
+
+for dJ/dw1  = dJ/dPredicted * dPredicted/dy1 * dy1/dx1 * dx1/dw1
+            = Sum of { -2*(Observed_i - Predicted_i) * w3 * (e^x1 / (1+e^x1) ) * input }
+
+for dJ/dw2  = dJ/dPredicted * dPredicted/dy2 * dy2/dx2 * dx2/dw2
+            = Sum of { -2*(Observed_i - Predicted_i) * w4 * (e^x2 / (1+e^x2) ) * input }
+    
+for dJ/db1  = dJ/dPredicted * dPredicted/dy1 * dy1/dx1 * dx1/db1
+            = Sum of { -2*(Observed_i - Predicted_i) * w3 * (e^x1 / (1+e^x1) ) }
+
+for dJ/db2  = dJ/dPredicted * dPredicted/dy2 * dy2/dx2 * dx2/db2
+            = Sum of { -2*(Observed_i - Predicted_i) * w4 * (e^x2 / (1+e^x2) ) }
+
+We initialize the 7 parameters with random values. In each step, we will calculate the gardient to get the updated value.
+
+The training will continue until the max_iteration has elapsed, or the min_step_size has been reached which results in the final optimal values for all 7 parameters. The training process is visualized here:
+
+![Gradient Descenet of All 7 Parameters]()
